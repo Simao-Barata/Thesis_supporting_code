@@ -51,6 +51,19 @@ Edit the design in `build_morphing_inputs.m`, in the block marked
 `USER SETTINGS`, then run this. It prints the headline numbers and draws the
 time history and a side view of the geometry.
 
+The design shipped here does **not** actuate: it reports
+`peakDeflection_mm: 0` because the wire peaks near 54 °C, short of the 75 °C at
+which the transformation starts. That is the point of the studies, and a cell of
+30 cm² is simply too small to heat a wire through 6 cells' worth of polymer. To
+see the model move, give it a larger cell, for example
+
+```matlab
+inputs.battery.length_m = 0.3;   % a 90 cm^2 cell instead of 30 cm^2
+```
+
+which reaches 121 °C and 1.04 mm of tip deflection. `maxDeflection_mm`, the
+ceiling that hinge allows, is reported whether or not the design actuates.
+
 ### The parametric studies
 
 ```matlab
