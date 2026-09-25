@@ -1,0 +1,16 @@
+# Results the scripts regenerate
+minimal_requirements_study.csv
+minimal_requirements_power.csv
+minimal_requirements_actuation_area.csv
+minimal_requirements_power_actuation_area.csv
+sanity_check.csv
+
+# Exported figures
+*.jpg
+*.png
+*.pdf
+
+# MATLAB leftovers
+*.asv
+*.mat
+slprj/
