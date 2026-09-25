@@ -56,7 +56,7 @@ inputs.battery.reserveEnergyFraction = 0.05;            % share of the energy he
 
 %% Battery: geometry and mass
 inputs.battery.width_m = 0.03;                          % also the width of the hinge
-inputs.battery.length_m = 0.1;                          % chordwise length; width x length = planform of one cell
+inputs.battery.length_m = 0.3;                          % chordwise length; width x length = planform of one cell
 inputs.battery.cellThickness_m = 1.0e-3;                % one cell; the stack is this times the cell count
 inputs.battery.compositeArealDensity_kgpm2 = 0.35;      % mass per unit electrode area of the laminate
 
