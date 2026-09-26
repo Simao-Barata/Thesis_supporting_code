@@ -838,8 +838,8 @@ for iPanel = 1:numel(panelLabels)
         xticks(cellCounts)
         xlim([min(cellCounts) - 0.5, max(cellCounts) + 0.5])
         xlabel('Cells stacked')
-        ylabel('Footprint of the stack (cm^2)')
-        title(sprintf('bias %d', biasOptions(iBias)))
+        ylabel('Planform of the stack (cm^2)')
+        title(biasLabel(biasOptions(iBias)))
         if ~any(found)
             text(0.5, 0.5, 'nothing moves anywhere on this grid', 'Units', 'normalized', ...
                 'HorizontalAlignment', 'center', 'FontAngle', 'italic', ...
@@ -860,6 +860,15 @@ for iPanel = 1:numel(panelLabels)
     c = colorbar(ax(end));
     c.Layout.Tile = 'east';
     c.Label.String = 'Deflection reached (mm)';
+end
+end
+
+function label = biasLabel(biasPerActive)
+%BIASLABEL How a panel names its bias option, in words rather than a count.
+if biasPerActive > 0
+    label = 'With bias wires';
+else
+    label = 'No bias wires';
 end
 end
 
@@ -899,7 +908,7 @@ title(layout, {['Smallest stack planform that brings a single wire to ' ...
     'full transformation'], headline})
 if nPanel > 1
     xlabel(layout, 'Wire diameter (mm)')
-    ylabel(layout, 'Footprint needed (cm^2)')
+    ylabel(layout, 'Planform needed (cm^2)')
 end
 
 ax = gobjects(1, numel(panelLabels));
@@ -927,7 +936,7 @@ for iPanel = 1:numel(panelLabels)
         end
     else
         xlabel('Wire diameter (mm)')
-        ylabel('Footprint needed (cm^2)')
+        ylabel('Planform needed (cm^2)')
     end
     if iPanel == 1
         % In its own column to the right of every tile, clear of the curves.
@@ -1009,7 +1018,7 @@ for iBias = 1:numel(biasOptions)
     xlim([0, 1.06 * max(diameters_mm)])
     xlabel('Wire diameter (mm)')
     ylabel('Deflection (mm)')
-    title(sprintf('bias %d', biasOptions(iBias)))
+    title(biasLabel(biasOptions(iBias)))
     if iBias == 1
         % One legend for both tiles, in its own column to the right: on the page
         % a legend inside the axes covers the thin-wire end of the curves.
