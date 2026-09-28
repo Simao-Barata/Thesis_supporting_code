@@ -1,7 +1,9 @@
 function performance = battery_performance_data()
 %BATTERY_PERFORMANCE_DATA Structural-battery performance map versus C-rate.
 %   Energy and power density are given on a total-mass basis, which is what the
-%   model sizes the pack with.  Swap in a different data set by uncommenting it.
+%   model sizes the pack with.  Swap in a different data set by
+%   uncommenting it. 3C values were guessed and only used in preliminary
+%   studies
 
 performance.cRate = [0.05 0.15 0.5 1.5 3];
 
